@@ -2,7 +2,7 @@ function [y, n] = sigadd (x1, n1, x2, n2)
 % y(n) = x1 (n) + x2(n)
 % --------------------
 % y is the sum of n, which incudes n1, n2
-% x1 is the sequence ver n1
+% x1 is the sequence over n1
 % x2 is the sequence over n2
 %
 
