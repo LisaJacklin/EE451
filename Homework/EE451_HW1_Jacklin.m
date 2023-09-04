@@ -26,7 +26,7 @@ n = -5:1:5;
 
 %Part a: Length 
 %after setting up x1 in the command window, the length can be determined.
-length(x1);%length = 11
+%length(x1);%length = 11
 
 %Part b: Causal/Anti-causal/Non-Causal 
 %Since x1 is not zero for all negative or positive values, this is a
@@ -55,7 +55,7 @@ length(x1);%length = 11
 % x2 [0     0     1     1     1     1     1     1     2     2     2]
 
 %Part a: Length
-length(x2); %length = 11
+%length(x2); %length = 11
 
 %Part b: Causal/Anti-causal/Non-Causal
 %Since x2 is not zero for all negative or positive values, this is a
@@ -84,7 +84,7 @@ length(x2); %length = 11
 % x3 [0  0   0   0    0    1.0000    0.5000    0.2500    0.1250    0.0625    0.0312]
 
 %Part a: Length
-length(x3); %length = 11
+%length(x3); %length = 11
 
 %Part b: Causal/Anti-causal/Non-Causal
 %since the function x3 is zero until n = 0, this function is thus causal.
@@ -109,7 +109,7 @@ length(x3); %length = 11
 % x4 [0.0312    0.0625    0.1250    0.2500    0.5000    2.0000    3.0000    5.0000    9.0000   17.0000   33.0000]
 
 %Part a: Length
-length(x4); %length = 11
+%length(x4); %length = 11
 
 %Part b: Causal/Anti-causal/Non-Causal
 % since this signal begins at n = -1, and n less than -1 equals zero,
@@ -134,7 +134,7 @@ length(x4); %length = 11
 % x5 [5.0000    5.0000    5.0000    5.0000    5.0000    5.0000    5.0000    5.0000    5.0000    5.0000    5.0000]
 
 %Part a: Length
-length(x5); %length = 11
+%length(x5); %length = 11
 
 %Part b: Causal/Anti-causal/Non-Causal
 %just as the rest, this signal is non-causal as it does not change to be
