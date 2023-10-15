@@ -1,23 +1,30 @@
 function [b, a, wl] = moving_average_filter(n)
 %------------------------------------------------
+%based on notes from in class review of HW5, we know the following:
+b = [1/n 1/n 1/n]; 
+a = [1];
 
-    % Define the function to calculate the magnitude response at a given N
-    mag_response = @(N) abs(freqz(ones(1, N)/N, 1, 1024));
+%please note that I am using sudo code for much of this for my
+%understanding to be displayed.
+%thie issue here is going to be determining wl. To determine this value, we
+%need to have a nested function.
+function w = cutoff(wl)
+    %here is where abs(H(w)) - abs(H0)/ sqrt(2) comes in since we want to
+    %have a value determined to find -3dB based on the desciption of the
+    %problem. 
 
-    % Use fzero to find N such that the magnitude response is -3 dB
-    N = fzero(@(N) mag_response(N) - sqrt(2)/2, n);
+    %Since we have wl, we will have to calculate H(wl), this can be done by
+    %using filter (b,a,wl) since we are given these values and then we
+    %should be able to use fft to transform into the frequency domain.
+    y=filter(b,a,wl);
+    yf = fftshift(fft(y));
 
-    % Calculate the filter coefficients
-    b = ones(1, N) / N;
-    a = 1;
+    %using this, we should be able to use the main to subtract from H(0)
+    %and then divide by sqrt(2) which should give w.
+    yft = yf - yf(0)/sqrt(2);
 
-    % Calculate the cutoff frequency wl
-    wl = 2 / (N + 1);
+end
 
-    % Display the coefficients and cutoff frequency
-    fprintf('Filter Coefficients (b): ');
-    disp(b);
-    fprintf('Filter Coefficients (a): ');
-    disp(a);
-    fprintf('Cutoff Frequency (wl): %.4f\n', wl);
-
+wl = fzero(@cutoff, [zero, zero2]); 
+%note that we need to find the first zero and the second zero here to
+%determine what we are trying to find.
