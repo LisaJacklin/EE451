@@ -20,7 +20,7 @@ h = yDFT(1:plotRange);
 abs_h = abs(h);
 
 %frequency range
-freqRange = (0:nextPowreOfTwo - 1) * (Fs/ nextPowerOfTwo);
+freqRange = (0:nextPowerOfTwo - 1) * (Fs/ nextPowerOfTwo);
 %only plot up to n/2 (as other half is the mirror image)
 gfreq = freqRange(1:plotRange);
 
